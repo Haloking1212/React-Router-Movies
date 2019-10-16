@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SavedList from './SavedList';
 
 const Movie = (props) => {
   const [movie, setMovie] = useState([]);
@@ -22,7 +21,7 @@ const Movie = (props) => {
   },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
-  const saveMovie = (props) => {
+  const saveMovie = () => {
     const addToSavedList = props.addToSavedList;
     addToSavedList(movie)
   }
@@ -50,7 +49,7 @@ const Movie = (props) => {
           </div>
         ))}
       </div>
-      <div className="save-button" onClick={props.saveMovie}>Save</div>
+      <div className="save-button" onClick={() => {saveMovie()}}>Save</div>
     </div>
   );
 }
